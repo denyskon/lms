@@ -1,5 +1,5 @@
 Package: LXDB MediaSorter
-Version: 2020.2
+Version: 2020.3
 Selection: main/utils
 Priority: extra
 Architecture: amd64
