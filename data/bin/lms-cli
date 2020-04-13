@@ -1,0 +1,24 @@
+#!/usr/bin/env python3
+
+from lms import exif
+import sys
+
+print("\nLXDB Media Sorter Version 2020.04\nCopyright © 2019-2020 LXDB Team\n")
+
+
+def help():
+    print("\nUsage:\nOption 1: Rename files to defined naming cheme\nlms-cli rename 'NEW_FILENAME' 'SOURCE_FOLDER' recursive=True/False")
+
+def move(foldername, filename, sourcepath, recursive):
+    exif.RMove(foldername, filename, sourcepath, recursive)
+
+cmd = sys.argv[1]
+
+if cmd == "help":
+    help()
+elif cmd == "rename":
+    filename = sys.argv[2]
+    sourcepath = sys.argv[3]
+    recursive = sys.argv[4]
+    print(filename, sourcepath, recursive)
+    exif.Rename(filename, sourcepath, recursive)
