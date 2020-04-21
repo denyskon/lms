@@ -13,4 +13,4 @@ setup(name='lms',
       zip_safe=False,
       scripts=['data/bin/lms', 'data/bin/lms-cli'],
       include_package_data=True,
-      data_files=[("/usr/local/share/applications", ["data/de.lxdb.lms.desktop"]), ("/usr/local/share/icons/hicolor/symbolic/apps/", ["data/icons/symbolic/de.lxdb.lms-symbolic.svg"]), ("/usr/local/share/icons/hicolor/scalable/apps/", ["data/icons/normal/de.lxdb.lms.svg"]), ("/usr/local/share/metainfo", ["data/de.lxdb.lms.appdata.xml"])])
+      data_files=[("share/applications", ["data/de.lxdb.lms.desktop"]), ("share/icons/hicolor/symbolic/apps/", ["data/icons/symbolic/de.lxdb.lms-symbolic.svg"]), ("share/icons/hicolor/scalable/apps/", ["data/icons/normal/de.lxdb.lms.svg"]), ("share/metainfo", ["data/de.lxdb.lms.appdata.xml"])])
