@@ -10,5 +10,5 @@ Icon=de.lxdb.lms
 Hidden=false
 Exec=lms
 Terminal=false
-Categories=X-Red-Hat-Base;X-Fedora;Applications;AudioVideo;Video;Graphics;Utility;FileTools;Qt
+Categories=X-SuSE-X-Red-Hat-Base;X-Fedora;Graphics;Viewer;System;FileTools;Utility;FileTools;Video;Player;Qt
 Keywords=lms;lxdb;fmds

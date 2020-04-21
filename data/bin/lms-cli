@@ -7,12 +7,14 @@ print("\nLXDB Media Sorter Version 2020.04\nCopyright © 2019-2020 LXDB Team\n")
 
 
 def help():
-    print("\nUsage:\nOption 1: Rename files to defined naming cheme\nlms-cli rename 'NEW_FILENAME' 'SOURCE_FOLDER' recursive=True/False")
-
+    print("\nUsage:\nOption 1: Rename files to defined naming cheme\n----------------------------------------------\n\nlms-cli rename 'NEW_FILENAME' 'SOURCE_FOLDER' recursive=True/False\n\nExample: lms-cli rename '%Y_%m_%d-%H_%M_%S' '/home/lxdb/Images/' recursive=True\n\n\nOption 2: Rename files to defined naming cheme and sort them into folders with defined names\n--------------------------------------------------------------------------------------------\n\nlms-cli sort 'FOLDER/NAME' 'NEW_FILENAME' 'SOURCE_FOLDER' recursive=True/false\n\nExample: lms-cli sort '%Y/%m' '%Y_%m_%d-%H_%M_%S' '/home/lxdb/Images/' recursive=True\n\n\nNaming syntax\n------------\n%Y year\n%m month\n%d day\n%H hour\n%M minute\n%S second\nOther text will be detected as text\n\nrecursive=True/False - Search for images and videos in subfolders(True/False)\n\n")
 def move(foldername, filename, sourcepath, recursive):
     exif.RMove(foldername, filename, sourcepath, recursive)
 
-cmd = sys.argv[1]
+try:
+    cmd = sys.argv[1]
+except IndexError:
+    cmd = "help"
 
 if cmd == "help":
     help()
@@ -22,3 +24,13 @@ elif cmd == "rename":
     recursive = sys.argv[4]
     print(filename, sourcepath, recursive)
     exif.Rename(filename, sourcepath, recursive)
+elif cmd == "sort":
+    foldername = sys.argv[2]
+    filename = sys.argv[3]
+    sourcepath = sys.argv[4]
+    recursive = sys.argv[5]
+    print(foldername, filename, sourcepath, recursive)
+    exif.RMove(foldername, filename, sourcepath, recursive)
+elif cmd != "help" and cmd != "sort" and cmd != "rename":
+    print("Command not found:", cmd)
+    help()
