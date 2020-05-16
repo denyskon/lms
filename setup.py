@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='lms',
-      version='2020.04',
+      version='2020.05',
       description='LXDB MediaSorter, a program to sort files after metadata.',
       long_description='LXDB MediaSorter, a program to soft files fast and easy.',
       url='https://github.com/lxdb/lms',

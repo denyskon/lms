@@ -8,6 +8,7 @@ from PyQt5.QtMultimedia import *
 from PyQt5.QtMultimediaWidgets import *
 import lms.exif
 import webbrowser
+import locale
 ##/LIBRARIES
 
 ##QT APPLICATION
@@ -34,9 +35,9 @@ info_text = "%Y year\n%m month\n%d day\n%H hour\n%M minute\n%S second\nOther tex
 ##/SYNTAX
 
 ##START
-language = os.environ["LANG"]
+language = locale.getdefaultlocale()]
 
-if language == "de_DE.UTF-8":
+if language[0] == "de_DE":
     metaname = "&Metadaten"
     tabname = "&Steuerung"
     viewname = "&Bild anzeigen"
@@ -52,7 +53,7 @@ if language == "de_DE.UTF-8":
     recursive_text = "Unterordner einbeziehen"
     about_text = "Über LXDB MediaSorter"
     help_text = "Dokumentation"
-elif language == "ru_RU.UTF-8":
+elif language[0] == "ru_RU":
     metaname = "&Мета-данные"
     tabname = "&Управление"
     viewname = "&Просмотр изображения"
@@ -68,7 +69,7 @@ elif language == "ru_RU.UTF-8":
     recursive_text = "Включить подпапки"
     about_text = "О LXDB MediaSorter"
     help_text = "Документация"
-elif language == "uk_UA.UTF-8":
+elif language[0] == "uk_UA":
     metaname = "&Мета-данні"
     tabname = "&Керування"
     viewname = "&Перегляд фотографії"
@@ -142,7 +143,7 @@ class App(QMainWindow):
         self.tab_ui.main_tab.folder_path_entry = QLineEdit()
 
         self.tab_ui.main_tab.button_open_folder=QPushButton(openbutt)
-        self.tab_ui.main_tab.button_open_folder.setIcon(QIcon(foldericon))
+        self.tab_ui.main_tab.button_open_folder.setIcon(self.style().standardIcon(QStyle.SP_DirOpenIcon))
         self.tab_ui.main_tab.button_open_folder.clicked.connect(self.get_folder)
         ##/OPEN_FOLDER
 
@@ -157,14 +158,14 @@ class App(QMainWindow):
         self.tab_ui.main_tab.folder_new_name.setText("%Y/%Y_%m")
 
         self.tab_ui.main_tab.folder_new_name.help = QPushButton()
-        self.tab_ui.main_tab.folder_new_name.help.setIcon(QIcon(abouticon))
+        self.tab_ui.main_tab.folder_new_name.help.setIcon(self.style().standardIcon(QStyle.SP_DialogHelpButton))
         self.tab_ui.main_tab.folder_new_name.help.setToolTip(info_text)
 
         self.tab_ui.main_tab.file_new_name = QLineEdit()
         self.tab_ui.main_tab.file_new_name.setText("%Y_%m_%d-%H_%M_%S")
 
         self.tab_ui.main_tab.file_new_name.help = QPushButton()
-        self.tab_ui.main_tab.file_new_name.help.setIcon(QIcon(abouticon))
+        self.tab_ui.main_tab.file_new_name.help.setIcon(self.style().standardIcon(QStyle.SP_DialogHelpButton))
         self.tab_ui.main_tab.file_new_name.help.setToolTip(info_text)
 
 
@@ -178,6 +179,7 @@ class App(QMainWindow):
 
         ##FILESYSTEM_MODEL
         self.user_home = os.environ["HOME"]
+
         self.file_system = QFileSystemModel()
         self.file_system.setRootPath("/")
 
@@ -197,19 +199,19 @@ class App(QMainWindow):
 
         self.menubar.help_menu = self.menubar.addMenu('&Help')
 
-        self.menubar.file_menu.open_folder_action = QAction(QIcon(foldericon), openbutt, self)
+        self.menubar.file_menu.open_folder_action = QAction(self.style().standardIcon(QStyle.SP_DirOpenIcon), openbutt, self)
         self.menubar.file_menu.open_folder_action.triggered.connect(self.get_folder)
 
         self.menubar.file_menu.quit_action = QAction(QIcon.fromTheme("application-exit"), "&Exit", self)
         self.menubar.file_menu.quit_action.triggered.connect(self.quit)
 
-        self.menubar.help_menu.about_action = QAction(QIcon(abouticon), "&" + about_text, self)
+        self.menubar.help_menu.about_action = QAction(self.style().standardIcon(QStyle.SP_MessageBoxInformation), "&" + about_text, self)
         self.menubar.help_menu.about_action.triggered.connect(self.aboutwindow)
 
-        self.menubar.help_menu.about_qt_action = QAction(QIcon(abouticon), "Qt", self)
+        self.menubar.help_menu.about_qt_action = QAction(self.style().standardIcon(QStyle.SP_MessageBoxInformation), "Qt", self)
         self.menubar.help_menu.about_qt_action.triggered.connect(self.about_qt)
 
-        self.menubar.help_menu.help_action = QAction(QIcon(helpicon), "&" + help_text, self)
+        self.menubar.help_menu.help_action = QAction(self.style().standardIcon(QStyle.SP_DialogHelpButton), "&" + help_text, self)
         self.menubar.help_menu.help_action.triggered.connect(self.helpfunc)
 
         self.menubar.file_menu.addAction(self.menubar.file_menu.open_folder_action)
@@ -278,7 +280,7 @@ class App(QMainWindow):
                         ".3g2", ".mxf", ".roq", ".nsv", ".f4v", ".f4p", ".f42",
                         ".f4b"]
 
-        if self.file_name.endswith((".png", ".jpg", ".xcf", ".bmp", ".svg")):
+        if self.file_name.endswith((".png", ".jpg", ".xcf", ".bmp", ".svg", ".jpeg")):
             print("True")
             self.tab_ui.image_tab = QWidget()
             self.scaleFactor = 0.0
@@ -404,6 +406,8 @@ class App(QMainWindow):
     def start(self):
         if self.tab_ui.main_tab.checkbox_recursive.isChecked():
             rc=True
+        else:
+            rc=False
         filename_new = self.tab_ui.main_tab.file_new_name.text()
         foldername_new = self.tab_ui.main_tab.folder_new_name.text()
         source = self.tab_ui.main_tab.folder_path_entry.text()
@@ -419,7 +423,14 @@ class App(QMainWindow):
         self.tab_ui.removeTab(i2)
 
     def aboutwindow(self):
-        QMessageBox.about(self, about_text, 'LXDB MediaSorter\nVersion 2020.04\nWebsite: https://lxdb.de\nCopyright © 2019-2020 LXDB Team')
+        QMessageBox.about(self,
+            "About LXDB MediaSorter",
+            """<b>LXDB MediaSorter version 2020.04</b>
+            <br>Get your files in order !
+            <p>Copyright &copy; 2019-2020 LXDB Team
+            <br>Licensed under the terms of the GNU GPLv3.0 License.
+            <p>Created, developed and maintained by LXDB Team.
+            <p><a href="https://lxdb.de/lms">MediaSorter at LXDB.de</a></p>""")
 
     def about_qt(self):
         QMessageBox.aboutQt(self)
