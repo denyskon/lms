@@ -25,7 +25,7 @@ If applicable, add screenshots to help explain your problem.
 
 **Desktop (please complete the following information):**
  - OS: [e.g. Fedora Linux Gnome 32]
- - Version [e.g. 2020.04]
+ - Version [e.g. 2020.05]
 
 **Additional context**
 Add any other context about the problem here.

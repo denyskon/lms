@@ -3,7 +3,7 @@
 from lms import exif
 import sys
 
-print("\nLXDB Media Sorter Version 2020.04\nCopyright © 2019-2020 LXDB Team\n")
+print("\nLXDB Media Sorter Version 2020.05\nCopyright © 2019-2020 LXDB Team\n")
 
 
 def help():

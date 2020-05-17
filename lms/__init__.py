@@ -35,7 +35,7 @@ info_text = "%Y year\n%m month\n%d day\n%H hour\n%M minute\n%S second\nOther tex
 ##/SYNTAX
 
 ##START
-language = locale.getdefaultlocale()]
+language = locale.getdefaultlocale()
 
 if language[0] == "de_DE":
     metaname = "&Metadaten"
@@ -45,7 +45,7 @@ if language[0] == "de_DE":
     runbutt = "&Start"
     ckboxlang = "&Verschieben in den Ordner "
     flnlang = "Neuer Dateiname"
-    title = "LXDB MediaSorter Version 2020.04"
+    title = "LXDB MediaSorter Version 2020.05"
     text_open = "Öffnen"
     text_meta = "Metadaten anzeigen"
     format_error = "Format wird nicht unterstützt."
@@ -61,7 +61,7 @@ elif language[0] == "ru_RU":
     runbutt = "&Начать"
     ckboxlang = "&Отправить в папку "
     flnlang = "&Новое название файла: "
-    title = "LXDB MediaSorter Версия 2020.04"
+    title = "LXDB MediaSorter Версия 2020.05"
     text_open = "Открыть"
     text_meta = "Просмотр метаданных"
     format_error = "Формат не поддерживается."
@@ -248,7 +248,7 @@ class App(QMainWindow):
         app.setWindowIcon(QIcon.fromTheme("de.lxdb.lms"))
         self.setWindowTitle(title)
         app.setApplicationName("LXDB MediaSorter")
-        app.setApplicationVersion("2020.04")
+        app.setApplicationVersion("2020.05")
 
         self.show()
         ##/WINDOW_OPTIONS
@@ -425,7 +425,7 @@ class App(QMainWindow):
     def aboutwindow(self):
         QMessageBox.about(self,
             "About LXDB MediaSorter",
-            """<b>LXDB MediaSorter version 2020.04</b>
+            """<b>""" + title + """</b>
             <br>Get your files in order !
             <p>Copyright &copy; 2019-2020 LXDB Team
             <br>Licensed under the terms of the GNU GPLv3.0 License.
