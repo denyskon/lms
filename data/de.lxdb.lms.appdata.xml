@@ -12,7 +12,7 @@
       -Simple cli mode.</p>
    </description>
    <launchable type="desktop-id">de.lxdb.lms.desktop</launchable>
-   <url type="homepage">https://lxdb.de/lms</url>
+   <url type="homepage">https://lxdb.de/de/lms</url>
    <updatecontact>service@lxdb.de</updatecontact>
    <provides>
       <id>de.lxdb.lms.desktop</id>

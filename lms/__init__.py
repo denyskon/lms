@@ -1,3 +1,24 @@
+#LXDB MediaSorter - A program to sort media files.
+#Copyright (C) 2019-2020 LXDB Team
+
+#This program is free software: you can redistribute it and/or modify
+#it under the terms of the GNU General Public License as published by
+#the Free Software Foundation, either version 3 of the License, or
+#any later version.
+
+#This program is distributed in the hope that it will be useful,
+#but WITHOUT ANY WARRANTY; without even the implied warranty of
+#MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#GNU General Public License for more details.
+
+#You should have received a copy of the GNU General Public License
+#along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+#LXDB MediaSorter,  Copyright (C) 2019-2020  LXDB Team
+#This program comes with ABSOLUTELY NO WARRANTY
+#This is free software, and you are welcome to redistribute it
+#under certain conditions.
+
 ##LIBRARIES
 import os
 import sys
@@ -45,7 +66,7 @@ if language[0] == "de_DE":
     runbutt = "&Start"
     ckboxlang = "&Verschieben in den Ordner "
     flnlang = "Neuer Dateiname"
-    title = "LXDB MediaSorter Version 2020.05"
+    title = "LXDB MediaSorter Version 2020.07"
     text_open = "Öffnen"
     text_meta = "Metadaten anzeigen"
     format_error = "Format wird nicht unterstützt."
@@ -61,7 +82,7 @@ elif language[0] == "ru_RU":
     runbutt = "&Начать"
     ckboxlang = "&Отправить в папку "
     flnlang = "&Новое название файла: "
-    title = "LXDB MediaSorter Версия 2020.05"
+    title = "LXDB MediaSorter Версия 2020.07"
     text_open = "Открыть"
     text_meta = "Просмотр метаданных"
     format_error = "Формат не поддерживается."
@@ -77,7 +98,7 @@ elif language[0] == "uk_UA":
     runbutt = "&Почати"
     ckboxlang = "&Пересунути в папку "
     flnlang = "Нова назва файлу:"
-    title = "LXDB MediaSorter версія 202.04"
+    title = "LXDB MediaSorter версія 2020.07"
     text_open = "Bідкрити"
     text_meta = "Перегляд метаданих"
     format_error = "Формат не підтримується."
@@ -93,7 +114,7 @@ else:
     runbutt = "&Run"
     ckboxlang = "&Move to folder "
     flnlang = "New file name:"
-    title = "LXDB MediaSorter Version 2020.2"
+    title = "LXDB MediaSorter Version 2020.07"
     text_open = "Open"
     text_meta = "View metadata"
     format_error = "Format not supported."
@@ -425,10 +446,10 @@ class App(QMainWindow):
     def aboutwindow(self):
         QMessageBox.about(self,
             "About LXDB MediaSorter",
-            """<b>""" + title + """</b>
+            """<b>LXDB MediaSorter version 2020.07</b>
             <br>Get your files in order !
             <p>Copyright &copy; 2019-2020 LXDB Team
-            <br>Licensed under the terms of the GNU GPLv3.0 License.
+            <br>Licensed under the terms of the <a href="https://www.gnu.org/licenses/">GNU GPLv3.0 License</a>.
             <p>Created, developed and maintained by LXDB Team.
             <p><a href="https://lxdb.de/lms">MediaSorter at LXDB.de</a></p>""")
 
