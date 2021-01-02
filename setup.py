@@ -14,7 +14,7 @@
 #You should have received a copy of the GNU General Public License
 #along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-#LXDB MediaSorter,  Copyright (C) 2019-2020  LXDB Team
+#LXDB MediaSorter,  Copyright (C) 2019-2021  LXDB Team
 #This program comes with ABSOLUTELY NO WARRANTY
 #This is free software, and you are welcome to redistribute it
 #under certain conditions.
@@ -22,10 +22,10 @@
 from setuptools import setup
 
 setup(name='lms',
-      version='2020.07',
+      version='1.0',
       description='LXDB MediaSorter, a program to sort files after metadata.',
-      long_description='LXDB MediaSorter, a program to soft files fast and easy.',
-      url='https://github.com/lxdb/lms',
+      long_description='LXDB MediaSorter, a program to sort files fast and easy.',
+      url='https://github.com/lxdb-team/lms',
       author='LXDB Team',
       author_email='service@lxdb.de',
       license='GPLv3.0',
