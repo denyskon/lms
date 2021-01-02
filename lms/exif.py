@@ -1,5 +1,5 @@
 #LXDB MediaSorter - A program to sort media files.
-#Copyright (C) 2019-2020 LXDB Team
+#Copyright (C) 2019-2021 LXDB Team
 
 #This program is free software: you can redistribute it and/or modify
 #it under the terms of the GNU General Public License as published by
@@ -14,7 +14,7 @@
 #You should have received a copy of the GNU General Public License
 #along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-#LXDB MediaSorter,  Copyright (C) 2019-2020  LXDB Team
+#LXDB MediaSorter,  Copyright (C) 2019-2021  LXDB Team
 #This program comes with ABSOLUTELY NO WARRANTY
 #This is free software, and you are welcome to redistribute it
 #under certain conditions.
